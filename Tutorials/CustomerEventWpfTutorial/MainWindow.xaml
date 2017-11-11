@@ -1,0 +1,18 @@
+﻿<Window x:Class="CustomerEventWpfTutorial.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomerEventWpfTutorial"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Grid local:MyButtonSimple.Tap="myButtonSimple_Tap">
+        <local:MyButtonSimple x:Name="myButtonSimple" Content="MyButtonSimple" HorizontalAlignment="Left" Margin="258,59,0,0" VerticalAlignment="Top" Click="myButtonSimple_Click" Tap="myButtonSimple_Tap"/>
+        <Button x:Name="btnCodeApproach" Content="Button" HorizontalAlignment="Left" Margin="318,166,0,0" VerticalAlignment="Top" Width="75" Click="btnCodeApproach_Click"/>
+        <TextBlock x:Name="txtDisplayMessage" HorizontalAlignment="Left" Margin="170,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="29" Width="171"/>
+        <Button x:Name="btnXAMLApproach" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnXAMLApproach_Click" Margin="95,165,0,0"/>
+        <TextBox x:Name="textBox" SpellCheck.IsEnabled="True" Language="en-US" HorizontalAlignment="Left" Height="23" Margin="95,47,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
