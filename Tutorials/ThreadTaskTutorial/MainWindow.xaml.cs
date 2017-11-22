@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,27 +34,27 @@ namespace ThreadTaskTutorial
 
             List<Task> tasks = new List<Task>();
             var watch = Stopwatch.StartNew();
+            var ui = TaskScheduler.FromCurrentSynchronizationContext();
             for (int i = 2; i < 20; i++)
             {
-               
                 var j = i;
-                var t = Task.Factory.StartNew(() =>
+                var compute = Task.Factory.StartNew(() =>
                 {
-                    var result = SumRootN(j);
-                    Dispatcher.BeginInvoke(new Action(() =>
-                        textBlock.Text += "root " + j.ToString() + " " +
-                                   result.ToString() + Environment.NewLine), null);
+                  return SumRootN(j);
                 });
-                tasks.Add(t);
+
+                tasks.Add(compute);
+                var diplay=compute.ContinueWith(result=>textBlock.Text += "root " + j.ToString() + " " +
+                                  compute.Result.ToString() + Environment.NewLine,ui);
             }
 
+            
             Task.Factory.ContinueWhenAll(tasks.ToArray(),
                result =>
                {
                    var time = watch.ElapsedMilliseconds;
-                   this.Dispatcher.BeginInvoke(new Action(() =>
-                       label.Content += time.ToString()));
-               });
+                       label.Content += time.ToString();
+               },CancellationToken.None,TaskContinuationOptions.None,ui);
 
         }
 
