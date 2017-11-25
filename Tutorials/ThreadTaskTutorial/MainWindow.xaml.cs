@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace ThreadTaskTutorial
         }
 
         CancellationTokenSource tokenSource = new CancellationTokenSource();
+        TaskScheduler ui = TaskScheduler.FromCurrentSynchronizationContext();
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -37,22 +39,25 @@ namespace ThreadTaskTutorial
 
             List<Task> tasks = new List<Task>();
             var watch = Stopwatch.StartNew();
-            var ui = TaskScheduler.FromCurrentSynchronizationContext();
+            var results = new BlockingCollection<double>();
+            var consume = Task.Factory.StartNew(() => display(results));
+
             for (int i = 2; i < 20; i++)
             {
                 var j = i;
                 var compute = Task.Factory.StartNew(() =>
                 {
-                  return SumRootN(j);
+                   results.Add(SumRootN(j));
                 },tokenSource.Token);
 
                 tasks.Add(compute);
 
-                var diplayResult = compute.ContinueWith(resultTask => {
+               
+                //var diplayResult = compute.ContinueWith(resultTask => {
 
-                    textBlock.Text += "root " + j.ToString() + " " +
-                                   compute.Result.ToString() + Environment.NewLine;
-                },CancellationToken.None,TaskContinuationOptions.OnlyOnRanToCompletion,ui);
+                //    textBlock.Text += "root " + j.ToString() + " " +
+                //                   compute.Result.ToString() + Environment.NewLine;
+                //},CancellationToken.None,TaskContinuationOptions.OnlyOnRanToCompletion,ui);
                     
                 var displayWhenCancel=compute.ContinueWith(resultTask=> { 
                             textBlock.Text += "root " + j.ToString() + "canceled"
@@ -65,10 +70,25 @@ namespace ThreadTaskTutorial
             Task.Factory.ContinueWhenAll(tasks.ToArray(),
                result =>
                {
+                   results.CompleteAdding();
                    var time = watch.ElapsedMilliseconds;
                        label.Content += time.ToString();
                },CancellationToken.None,TaskContinuationOptions.None,ui);
 
+        }
+        public void display(BlockingCollection<double> results)
+        {
+           
+            // instead of doing this we can use results.GetConsumingEnumerable()
+            ///while (!results.IsCompleted)
+            foreach (var item in results.GetConsumingEnumerable())
+            {
+                ///while (!results.TryTake(out item)) Thread.Sleep(200);
+                double currentItem = item;
+                Task.Factory.StartNew(new Action(() =>
+                          textBlock.Text += currentItem.ToString() + Environment.NewLine),
+                     CancellationToken.None, TaskCreationOptions.None, ui);
+            }
         }
 
         public double SumRootN(int root)
