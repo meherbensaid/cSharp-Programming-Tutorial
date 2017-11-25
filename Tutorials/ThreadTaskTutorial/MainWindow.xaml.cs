@@ -27,8 +27,11 @@ namespace ThreadTaskTutorial
             InitializeComponent();
         }
 
+        CancellationTokenSource tokenSource = new CancellationTokenSource();
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            tokenSource = new CancellationTokenSource();
             textBlock.Text = "";
             label.Content = "Milliseconds: ";
 
@@ -41,11 +44,21 @@ namespace ThreadTaskTutorial
                 var compute = Task.Factory.StartNew(() =>
                 {
                   return SumRootN(j);
-                });
+                },tokenSource.Token);
 
                 tasks.Add(compute);
-                var diplay=compute.ContinueWith(result=>textBlock.Text += "root " + j.ToString() + " " +
-                                  compute.Result.ToString() + Environment.NewLine,ui);
+
+                var diplayResult = compute.ContinueWith(resultTask => {
+
+                    textBlock.Text += "root " + j.ToString() + " " +
+                                   compute.Result.ToString() + Environment.NewLine;
+                },CancellationToken.None,TaskContinuationOptions.OnlyOnRanToCompletion,ui);
+                    
+                var displayWhenCancel=compute.ContinueWith(resultTask=> { 
+                            textBlock.Text += "root " + j.ToString() + "canceled"
+                              + Environment.NewLine;
+
+                }, CancellationToken.None,TaskContinuationOptions.OnlyOnCanceled, ui);
             }
 
             
@@ -58,14 +71,21 @@ namespace ThreadTaskTutorial
 
         }
 
-        public static double SumRootN(int root)
+        public double SumRootN(int root)
         {
             double result = 0;
             for (int i = 1; i < 10000000; i++)
             {
+                tokenSource.Token.ThrowIfCancellationRequested();
                 result += Math.Exp(Math.Log(i) / root);
             }
             return result;
+        }
+
+        private void cancel_Click(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
+            textBlock.Text += "Cancel" + Environment.NewLine;
         }
     }
 }
