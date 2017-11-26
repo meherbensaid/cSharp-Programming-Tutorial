@@ -13,7 +13,7 @@ namespace ConcurentDictionaryExamples
         //      ConcurrentDictionary<TKey, TValue>.AddOrUpdate()
         //      ConcurrentDictionary<TKey, TValue>.GetOrAdd()
         //      ConcurrentDictionary<TKey, TValue>[]
-        static void Main()
+        public void Main()
         {
             // Construct a ConcurrentDictionary
             ConcurrentDictionary<int, int> cd = new ConcurrentDictionary<int, int>();
@@ -35,6 +35,7 @@ namespace ConcurentDictionaryExamples
             // Should return 100, as key 2 is already set to that value
             value = cd.GetOrAdd(2, 10000);
             Console.WriteLine("After second GetOrAdd, cd[2] = {0} (should be 100)", value);
+           
         }
     }
 }
