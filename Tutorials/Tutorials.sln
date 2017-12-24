@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IComparableTutorial", "ICom
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataFlow", "DataFlow", "{4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "walkthrough-using-dataflow-in-a-windows-forms-application", "DataFlow\walkthrough-using-dataflow-in-a-windows-forms-application\walkthrough-using-dataflow-in-a-windows-forms-application.csproj", "{0472CB1F-9651-4881-AD56-016C54DDCD18}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnlinkDataFlowBlocks", "DataFlow\UnlinkDataFlowBlocks\UnlinkDataFlowBlocks.csproj", "{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}"
 EndProject
 Global
@@ -155,6 +157,10 @@ Global
 		{479AD1C9-C19A-4062-9916-B1BF0B55DFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{479AD1C9-C19A-4062-9916-B1BF0B55DFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{479AD1C9-C19A-4062-9916-B1BF0B55DFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0472CB1F-9651-4881-AD56-016C54DDCD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0472CB1F-9651-4881-AD56-016C54DDCD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0472CB1F-9651-4881-AD56-016C54DDCD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0472CB1F-9651-4881-AD56-016C54DDCD18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -182,6 +188,7 @@ Global
 		{62EED520-11F6-4B20-AC58-4096DD56E272} = {0283D981-2AB8-41AD-923F-531A33C33FC0}
 		{A4143863-A11B-4461-8C65-285CFD3FE8CD} = {0283D981-2AB8-41AD-923F-531A33C33FC0}
 		{479AD1C9-C19A-4062-9916-B1BF0B55DFFB} = {0283D981-2AB8-41AD-923F-531A33C33FC0}
+		{0472CB1F-9651-4881-AD56-016C54DDCD18} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
