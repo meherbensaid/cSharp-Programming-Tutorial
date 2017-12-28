@@ -59,6 +59,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "walkthrough-using-dataflow-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnlinkDataFlowBlocks", "DataFlow\UnlinkDataFlowBlocks\UnlinkDataFlowBlocks.csproj", "{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlockingCollections", "BlockingCollections", "{02EFB061-A064-44B6-A53C-E7EA34B1883A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeLineWithBlockingCollection", "BlockingCollection\PipeLineWithBlockingCollection\PipeLineWithBlockingCollection.csproj", "{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +169,10 @@ Global
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +198,7 @@ Global
 		{479AD1C9-C19A-4062-9916-B1BF0B55DFFB} = {0283D981-2AB8-41AD-923F-531A33C33FC0}
 		{0472CB1F-9651-4881-AD56-016C54DDCD18} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
+		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA} = {02EFB061-A064-44B6-A53C-E7EA34B1883A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DB1F5B8-4D04-4EFA-AE5A-8266DA563D2F}
