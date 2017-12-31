@@ -63,6 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlockingCollections", "Bloc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeLineWithBlockingCollection", "BlockingCollection\PipeLineWithBlockingCollection\PipeLineWithBlockingCollection.csproj", "{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConcurentCollections", "ConcurentCollections", "{5BBBC73C-4AC0-41D4-89DC-9A02BDA2FF39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateObjectPoolWithConcurrentBag", "ConcurentCollections\CreateObjectPoolWithConcurrentBag\CreateObjectPoolWithConcurrentBag.csproj", "{009EF9AD-E00D-4F3D-AB78-0CF847DC584A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -173,6 +177,10 @@ Global
 		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009EF9AD-E00D-4F3D-AB78-0CF847DC584A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009EF9AD-E00D-4F3D-AB78-0CF847DC584A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009EF9AD-E00D-4F3D-AB78-0CF847DC584A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009EF9AD-E00D-4F3D-AB78-0CF847DC584A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -199,6 +207,7 @@ Global
 		{0472CB1F-9651-4881-AD56-016C54DDCD18} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
 		{2B0B80B3-063E-4C93-9D7B-70C1A1CEE3E4} = {4B5D16F9-8B11-4CC3-8091-8FFF2E73B36E}
 		{C6C6AC19-1C95-46C0-8C18-79019B99C2CA} = {02EFB061-A064-44B6-A53C-E7EA34B1883A}
+		{009EF9AD-E00D-4F3D-AB78-0CF847DC584A} = {5BBBC73C-4AC0-41D4-89DC-9A02BDA2FF39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DB1F5B8-4D04-4EFA-AE5A-8266DA563D2F}
